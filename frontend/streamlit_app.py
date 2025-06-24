@@ -1,6 +1,7 @@
 import streamlit as st
 import httpx
 from datetime import date
+import us  # make sure this is installed with `pip install us`
 
 st.set_page_config(page_title="Legal Docket Deadline Calculator", page_icon="📅")
 
@@ -10,18 +11,23 @@ st.title("📅 Legal Docket Deadline Calculator")
 with st.form("deadline_form"):
     st.subheader("Enter Case Information")
 
-    jurisdiction = st.selectbox("Jurisdiction", ["California", "Virginia"])
+    # Get list of all 50 states
+    jurisdictions = [state.name for state in us.states.STATES]
+    jurisdictions.sort()
+
+    jurisdiction = st.selectbox("Jurisdiction", jurisdictions)
     case_type = st.selectbox("Case Type", ["Civil"])
 
-    # Trigger event options per jurisdiction
-    trigger_event_options = {
-        "California": ["Complaint Filed"],
-        "Virginia": ["Complaint Filed", "Answer Filed"]
+    # Common baseline events
+    default_events = {
+        "Complaint Filed": 30,
+        "Answer Filed": 20,
+        "Summons Served": 60
     }
 
     trigger_event = st.selectbox(
         "Trigger Event",
-        trigger_event_options.get(jurisdiction, [])
+        list(default_events.keys())
     )
 
     trigger_date = st.date_input("Trigger Date", value=date.today())
@@ -48,7 +54,7 @@ if submitted:
                 for d in deadlines:
                     st.write(f"📌 **{d['name']}** → `{d['due_date']}` (_{d['rule_applied']}_)")
             else:
-                st.warning("⚠️ No matching rules found for the selected event.")
+                st.warning("⚠️ No matching rules found for this event in this jurisdiction.")
 
         except Exception as e:
             st.error(f"❌ Failed to generate deadlines: {e}")

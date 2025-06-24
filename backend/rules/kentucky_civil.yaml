@@ -1,5 +1,5 @@
 case_type: Civil
-jurisdiction: Virginia
+jurisdiction: Kentucky
 rules:
 - deadlines:
   - name: Defendant Response Due

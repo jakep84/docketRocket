@@ -1,5 +1,5 @@
 case_type: Civil
-jurisdiction: Virginia
+jurisdiction: Illinois
 rules:
 - deadlines:
   - name: Defendant Response Due

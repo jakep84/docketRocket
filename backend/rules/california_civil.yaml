@@ -1,9 +1,7 @@
-jurisdiction: "California"
-case_type: "Civil"
+case_type: Civil
+jurisdiction: California
 rules:
-  - event: "Complaint Filed"
-    deadlines:
-      - name: "Defendant Response Due"
-        offset_days: 30
-      - name: "Initial Case Management Statement"
-        offset_days: 90
+- deadlines:
+  - name: Defendant Response Due
+    offset_days: 30
+  event: Complaint Filed

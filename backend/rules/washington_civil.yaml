@@ -1,5 +1,5 @@
 case_type: Civil
-jurisdiction: Virginia
+jurisdiction: Washington
 rules:
 - deadlines:
   - name: Defendant Response Due
