@@ -1,0 +1,16 @@
+jurisdiction: "Virginia"
+case_type: "Civil"
+rules:
+  - event: "Complaint Filed"
+    deadlines:
+      - name: "Defendant Response Due"
+        offset_days: 21
+      - name: "Service of Process Deadline"
+        offset_days: 120
+
+  - event: "Answer Filed"
+    deadlines:
+      - name: "Discovery Begins"
+        offset_days: 1
+      - name: "Discovery Cutoff"
+        offset_days: 150
