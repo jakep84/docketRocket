@@ -20,7 +20,7 @@ DocketRocket is a lightweight legal deadline calculator that helps lawyers, para
 
 ## 🖥️ Preview
 
-![screenshot](https://via.placeholder.com/800x400.png?text=DocketRocket+UI+Preview)
+![screenshot](./screenshot.png)
 
 ---
 
